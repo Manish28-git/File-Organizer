@@ -1,0 +1,70 @@
+Brief Explanation of the Program
+This program is a Python-based file organizer designed to automate the process of categorizing and managing files in a specified directory. Additionally, it incorporates a disk usage optimization feature to monitor and manage storage space efficiently. Here's a concise breakdown of how it works:
+
+1. Purpose
+File Organization: Automatically moves files into categorized folders (e.g., Excel, Music, Docs) based on their file types.
+Disk Usage Optimization: Monitors folder sizes, archives older files, and deletes large files to ensure efficient disk space utilization.
+2. Core Features
+File Categorization:
+
+Detects files in a specified directory.
+Moves files into predefined folders (Excel, Music, Image, Docs, and Text) based on their extensions.
+Folder Creation:
+
+Checks if categorized folders exist; creates them if they don't.
+Disk Usage Monitoring:
+
+Calculates the size of each categorized folder.
+Compares folder sizes against a specified size limit (500 MB in this case).
+Disk Optimization:
+
+Archiving: Moves files older than 30 days into an "Archive" subfolder.
+Deletion: Removes files larger than 50 MB to free up space.
+Continuous Operation:
+
+Runs in a loop, performing the organization and optimization every 24 hours.
+3. How It Works
+Directory Scanning:
+
+The program scans the specified directory (M:/Python24/File automate/Usage/) for files and folders.
+Categorization:
+
+Files are checked for their extensions and moved to corresponding folders (Excel, Music, etc.).
+Disk Usage Check:
+
+The program calculates folder sizes using the os module.
+If a folder exceeds the defined size limit, it triggers optimization.
+Optimization:
+
+Archiving: Files older than 30 days are moved to an "Archive" folder.
+Deletion: Files exceeding 50 MB are deleted to free up space.
+Continuous Execution:
+
+After organizing files and optimizing disk usage, the program pauses for 24 hours before running again.
+4. Libraries Used
+os: For file and directory operations.
+shutil: For moving files and folders.
+time: For calculating file age and scheduling periodic runs.
+5. Code Structure
+Helper Functions:
+get_folder_size(): Calculates the size of a folder.
+handle_exceeding_folder(): Archives or deletes files in folders exceeding size limits.
+Main Functionality:
+organize_files(): Categorizes files and invokes disk usage checks.
+check_disk_usage(): Checks folder sizes and triggers optimization.
+Loop:
+A while True loop ensures the script runs continuously every 24 hours.
+6. Example Workflow
+A folder contains mixed files: report.xlsx, song.mp3, photo.jpg, and large_video.mp4.
+The program:
+Moves report.xlsx to the Excel folder.
+Moves song.mp3 to the Music folder.
+Moves photo.jpg to the Image folder.
+If the Music folder exceeds 500 MB:
+Archives songs older than 30 days.
+Deletes large files exceeding 50 MB.
+7. Key Benefits
+Automates manual file organization.
+Prevents folders from becoming cluttered.
+Ensures efficient use of disk space by removing unnecessary files.
+Reduces user effort with continuous execution.
